@@ -48,7 +48,19 @@ public class Uso_Empleado {
 		
 		jefa_Finanzas.estableceIncentivo(55000);
 		
+//		Empleado director_comercial = new Jefatura("Sandra", 85000, 2012, 05, 05);
+//		
+//		Comparable ejemplo = new Empleado("Elisabeth", 95000, 2011, 01, 07);
+//		
+//		if(director_comercial instanceof Empleado) {
+//			System.out.println("Es de tipo jefatura");
+//		}
+//		
+//		if(ejemplo instanceof Comparable) {
+//			System.out.println("Implementa la interfaz comparable");
+//		}
 		
+		System.out.println(jefa_Finanzas.tomar_decisiones("Dar más días de vaciones a los empleados"));
 		
 		for(Empleado e: misEmpleado) { // Bucle for mejorado
 			
@@ -72,7 +84,7 @@ public class Uso_Empleado {
 }
 
 
-class Empleado implements Comparable { //Interfaz Predefinida
+class Empleado implements Comparable { //Interfaz Predefinida | no se puede "instanciar" un interfaz
 	
 	//constructor
 	public Empleado(String nom, double sue, int agno, int mes, int dia ) { // Un constructor debe llevar el mismo nombre que la CLASE al que pertenece
@@ -147,13 +159,17 @@ class Empleado implements Comparable { //Interfaz Predefinida
 	
 }
 
-class Jefatura extends Empleado {
+class Jefatura extends Empleado implements Jefes{
 	
 	public Jefatura( String nom, double sue, int agno, int mes, int dia) {
 		
 		super(nom, sue, agno, mes, dia);
 		
 		
+	}
+	
+	public String tomar_decisiones(String decision) {
+		return "Un miembro de la dierccion ha tomado la decision de: " + decision;
 	}
 	
 	public void estableceIncentivo(double b) { // SETTER
