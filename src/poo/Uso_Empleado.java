@@ -62,6 +62,14 @@ public class Uso_Empleado {
 		
 		System.out.println(jefa_Finanzas.tomar_decisiones("Dar más días de vaciones a los empleados"));
 		
+		System.out.println("El Jefe: " + jefa_Finanzas.dameNombre() + " tiene un bonus de: " 
+		
+				+ jefa_Finanzas.establece_bonus(500) );
+		
+		System.out.println(misEmpleado[3].dameNombre() + " tiene un bonus de: " 
+		
+				+ misEmpleado[3].establece_bonus(200));
+		
 		for(Empleado e: misEmpleado) { // Bucle for mejorado
 			
 			e.subeSueldo(5);
@@ -84,7 +92,7 @@ public class Uso_Empleado {
 }
 
 
-class Empleado implements Comparable { //Interfaz Predefinida | no se puede "instanciar" un interfaz
+class Empleado implements Comparable, Trabajadores { //Interfaz Predefinida | no se puede "instanciar" un interfaz
 	
 	//constructor
 	public Empleado(String nom, double sue, int agno, int mes, int dia ) { // Un constructor debe llevar el mismo nombre que la CLASE al que pertenece
@@ -101,6 +109,11 @@ class Empleado implements Comparable { //Interfaz Predefinida | no se puede "ins
 		
 		Id = idSiguiente;
 		
+	}
+	
+	public double establece_bonus( double gratificacion ) {
+		
+		return Trabajadores.bouns_base + gratificacion;
 	}
 	
 	public Empleado(String nom) { // segundo constructor
@@ -170,6 +183,13 @@ class Jefatura extends Empleado implements Jefes{
 	
 	public String tomar_decisiones(String decision) {
 		return "Un miembro de la dierccion ha tomado la decision de: " + decision;
+	}
+	
+	public double establece_bonus( double gratificacion ) {
+		
+		double prima = 2000;
+		
+		return Trabajadores.bouns_base + gratificacion + prima;
 	}
 	
 	public void estableceIncentivo(double b) { // SETTER
