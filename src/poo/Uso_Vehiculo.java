@@ -44,15 +44,6 @@ public class Uso_Vehiculo {
 		System.out.println(miCoche1.dime_datos_generales() + " " + miCoche1.dime_color());
 		
 		System.out.println(miFurgoneta1.dime_datos_generales() + miFurgoneta1.dimeDatos_furgoneta());
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
 	}
 
