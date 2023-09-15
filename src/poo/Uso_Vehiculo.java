@@ -46,14 +46,6 @@ public class Uso_Vehiculo {
 		System.out.println(miFurgoneta1.dime_datos_generales() + miFurgoneta1.dimeDatos_furgoneta());
 		
 		
-		System.out.println("Agregando Archivos Java a GitHub");
-		
-		System.out.println("Probando Git Bash");
-		
-		System.out.println("Probando Uso de Git Bash");
-		
-		System.out.println("Probando...");
-		
 		
 		
 		
