@@ -11,9 +11,9 @@ public class PruebaTemporizador2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Reloj mireloj = new Reloj(3000, true);
+		Reloj mireloj = new Reloj();
 
-		mireloj.enMarcha();
+		mireloj.enMarcha(3000, true);
 		
 		JOptionPane.showMessageDialog(null, "Pulsa aceptar para terminar");
 		
@@ -25,42 +25,36 @@ public class PruebaTemporizador2 {
 
 class Reloj{
 	
-	public Reloj(int intervalo, boolean sonido) {
-		
-		this.intervalo = intervalo;
-		this.sonido = sonido;
-		
-	}
+//	public Reloj(int intervalo, boolean sonido) {
+//		
+//		this.intervalo = intervalo;
+//		this.sonido = sonido;
+//		
+//	}
 	
-	public void enMarcha() {
+	public void enMarcha(int intervalo, final boolean sonido) {
+		
+		class DameLaHora2 implements ActionListener{ // Clase INTERNA LOCAL
+			
+			public void actionPerformed(ActionEvent evento) {
+				
+				Date ahora = new Date();
+				
+				System.out.println("Te pongo la hora cada 3 sg: " + ahora);
+				
+				if(sonido ) {
+					
+					Toolkit.getDefaultToolkit().beep();
+				}
+			}
+		}
 		
 		ActionListener oyente = new DameLaHora2();
 		
 		Timer miTemporizador = new Timer(intervalo, oyente);
 		
-		miTemporizador.start();
-		
-		
+		miTemporizador.start();	
 	}
-	
-	private int intervalo;
-	private boolean sonido;
-	
-	private class DameLaHora2 implements ActionListener{
-		
-		public void actionPerformed(ActionEvent evento) {
-			
-			Date ahora = new Date();
-			
-			System.out.println("Te pongo la hora cada 3 sg: " + ahora);
-			
-			if(sonido ) {
-				
-				Toolkit.getDefaultToolkit().beep();
-			}
-		}
-	}
-	
 }
 
 // Probando git desde Eclipse
