@@ -26,7 +26,7 @@ public class Ejemplo_Array_2D {
 			
 		}
 		
-			for (int z = 0; z < 6; z ++) {
+			for (int z = 0; z < 6; z++) {
 				
 				System.out.println();
 				
